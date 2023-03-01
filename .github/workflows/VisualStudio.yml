@@ -36,10 +36,10 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild ./Solution/SearchLib/SearchLib.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:ErrorOnNoBuild=true
+      run: msbuild .Solution/SearchLib/SearchLib.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:ErrorOnNoBuild=true /p:OutDir=../x64/Debug /p:CreateOutputDirectory=true
       
     - name: Build Execution
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild ./Solution/Program/Program.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:ErrorOnNoBuild=true
+      run: msbuild .Solution/Program/Program.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:ErrorOnNoBuild=true /p:OutDir=../x64/Debug /p:CreateOutputDirectory=true
