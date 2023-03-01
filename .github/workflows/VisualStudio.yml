@@ -31,15 +31,15 @@ jobs:
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
-
+      
     - name: Build Library
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild ${{env.SOLUTION_FILE_PATH}} /p:ProjectName=SearchLib /p:ErrorOnNoBuild=true
-      
+      run:  msbuild ${{env.SOLUTION_FILE_PATH}} /t:SearchLib
+
     - name: Build Execution
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild ${{env.SOLUTION_FILE_PATH}} /p:ProjectName=Program /p:ErrorOnNoBuild=true
+      run:  msbuild ${{env.SOLUTION_FILE_PATH}} /t:Program
